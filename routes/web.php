@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuratController;
+\Route::resource('surat', SuratController::class);
 
-Route::get('/', [SuratController::class, 'daftarSurat']);
+
+
+//Route::get('/', [SuratController::class, 'daftarSurat']);
+Route::resource('surat', SuratController::class);
+
