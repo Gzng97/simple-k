@@ -350,9 +350,14 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">Profile</a>
-                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
-                </li>
+    <a href="#" class="btn btn-outline-secondary">Profile</a>
+    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm px-3 align-middle">
+            <i class="fas fa-sign-out-alt me-1"></i> Keluar Aplikasi
+        </button>
+    </form>
+</li>
                 <!--end::Menu Footer-->
               </ul>
             </li>
@@ -482,7 +487,8 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="./layout/unfixed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
+                      <i class="nav-icon bi bi-circle">
+                      </i>
                       <p>Default Sidebar</p>
                     </a>
                   </li>

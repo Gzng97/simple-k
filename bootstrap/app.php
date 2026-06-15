@@ -10,8 +10,9 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
+    ->withMiddleware(function (Middleware $middleware) {
+    // Mengarahkan user yang sudah login jika mencoba akses rute 'guest' (seperti /login)
+    $middleware->redirectUsersTo('/surat');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
