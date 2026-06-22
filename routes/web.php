@@ -14,9 +14,9 @@ Route::middleware(['guest'])->group(function () {
  
 // Group 2: Isolasi Keamanan Khusus untuk Pengguna yang Telah Sukses Terautentikasi
 Route::middleware(['auth'])->group(function () {
-    // Penanganan Aksi Keluar Aplikasi
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
- 
-    // Proteksi Total Rute CRUD Surat Aplikasi Simpel-K dari Serangan Manipulasi Tembak URL
+
+    Route::get('/surat/{id}/cetak', [SuratController::class, 'cetakPdf'])->name('surat.cetak');
+
     Route::resource('surat', SuratController::class);
 });
